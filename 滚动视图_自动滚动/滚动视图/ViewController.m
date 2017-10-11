@@ -11,6 +11,10 @@
 #define screen_width [UIScreen mainScreen].bounds.size.width
 #define screen_height [UIScreen mainScreen].bounds.size.height
 
+static CGFloat img_height = 150;
+static CGFloat img_y = 0;
+static CGFloat img_width = 375;
+
 @interface ViewController ()<UIScrollViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIScrollView *myScrollview;
@@ -29,12 +33,7 @@
     self.view.backgroundColor = [UIColor lightGrayColor];
     
     /* < 动态创建UIimageview添加到UIscrollview中 > */
-    
-//    CGFloat img_width = 375;
-    CGFloat img_height = 150;
-    CGFloat img_y = 0;
-    
-    self.myScrollview.frame = CGRectMake(0, 70, screen_width, img_height);
+    self.myScrollview.frame = CGRectMake(0, 100, screen_width, img_height);
     
     //1、循环创建6个uiimgview添加到UIscrollview中
     for (NSInteger index = 0; index < 6; index ++) {
@@ -64,10 +63,8 @@
     //隐藏水平指示器
     self.myScrollview.showsHorizontalScrollIndicator = NO;
     
-    self.myPageController.frame = CGRectMake(0, 0, 120, 20);
+    self.myPageController.frame = CGRectMake(0, 0, 160, 20);
     self.myPageController.center = CGPointMake(self.view.center.x, 200);
-//    self.myPageController.tintColor = [UIColor redColor];
-//    self.myPageController.backgroundColor = [UIColor whiteColor];
     self.myPageController.currentPageIndicatorTintColor = [UIColor redColor];
     self.myPageController.pageIndicatorTintColor = [UIColor blueColor];
     self.myPageController.numberOfPages = 6;
@@ -159,11 +156,5 @@
     [runloop addTimer:self.timer forMode:NSRunLoopCommonModes];
     
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 
 @end

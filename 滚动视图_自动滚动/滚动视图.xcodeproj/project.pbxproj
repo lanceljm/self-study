@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A6420861F8DB63300C93FBF /* PureCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6420851F8DB63300C93FBF /* PureCodeViewController.m */; };
 		3657F7DC1F8C79F20006706D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3657F7DB1F8C79F20006706D /* AppDelegate.m */; };
 		3657F7DF1F8C79F20006706D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3657F7DE1F8C79F20006706D /* ViewController.m */; };
 		3657F7E21F8C79F20006706D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3657F7E01F8C79F20006706D /* Main.storyboard */; };
@@ -16,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A6420841F8DB63300C93FBF /* PureCodeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PureCodeViewController.h; sourceTree = "<group>"; };
+		1A6420851F8DB63300C93FBF /* PureCodeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PureCodeViewController.m; sourceTree = "<group>"; };
 		3657F7D71F8C79F20006706D /* 滚动视图.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "滚动视图.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3657F7DA1F8C79F20006706D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3657F7DB1F8C79F20006706D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -62,6 +65,8 @@
 				3657F7DB1F8C79F20006706D /* AppDelegate.m */,
 				3657F7DD1F8C79F20006706D /* ViewController.h */,
 				3657F7DE1F8C79F20006706D /* ViewController.m */,
+				1A6420841F8DB63300C93FBF /* PureCodeViewController.h */,
+				1A6420851F8DB63300C93FBF /* PureCodeViewController.m */,
 				3657F7E01F8C79F20006706D /* Main.storyboard */,
 				3657F7E31F8C79F20006706D /* Assets.xcassets */,
 				3657F7E51F8C79F20006706D /* LaunchScreen.storyboard */,
@@ -143,6 +148,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3657F7DF1F8C79F20006706D /* ViewController.m in Sources */,
+				1A6420861F8DB63300C93FBF /* PureCodeViewController.m in Sources */,
 				3657F7EA1F8C79F20006706D /* main.m in Sources */,
 				3657F7DC1F8C79F20006706D /* AppDelegate.m in Sources */,
 			);
