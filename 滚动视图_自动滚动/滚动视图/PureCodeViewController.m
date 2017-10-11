@@ -13,11 +13,13 @@
 
 static CGFloat img_height = 200;
 
-@interface PureCodeViewController ()<UIScrollViewDelegate>
+@interface PureCodeViewController ()<UIScrollViewDelegate,UITableViewDelegate,UITableViewDataSource>
 {
     UIScrollView    *myScrollview;
     UIPageControl *myPageControl;
     NSTimer         *timer;
+    
+    UITableView *myTableview;
 }
 
 
@@ -31,6 +33,7 @@ static CGFloat img_height = 200;
     if (self) {
         myScrollview    = [[UIScrollView alloc] init];
         myPageControl = [[UIPageControl alloc] init];
+        myTableview = [[UITableView alloc] init];
     }
     return self;
 }
@@ -80,14 +83,24 @@ static CGFloat img_height = 200;
     timer = [NSTimer scheduledTimerWithTimeInterval:1.f target:self selector:@selector(scrollWithImg) userInfo:nil repeats:YES];
     /** change priority **/
     [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+    
+    
+    myTableview.frame = CGRectMake(10, CGRectGetMaxY(myScrollview.frame) + 10, screen_width - 20, screen_height - CGRectGetMaxY(myScrollview.frame) - 20);
+    myTableview.delegate = self;
+    myTableview.dataSource = self;
+    myTableview.backgroundColor = [UIColor grayColor];
+    [self.view addSubview:myTableview];
 }
 
 #pragma mark -- drag、pull
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    CGFloat offset  =    scrollView.contentOffset.x;
-    offset              =   offset + scrollView.frame.size.width * 0.5;
-    myPageControl.currentPage = offset / (scrollView.frame.size.width);
+    /** judge class **/
+    if (scrollView == myScrollview) {
+        CGFloat offset  =    scrollView.contentOffset.x;
+        offset              =   offset + scrollView.frame.size.width * 0.5;
+        myPageControl.currentPage = offset / (scrollView.frame.size.width);
+    }
 }
 
 #pragma mark -- timer action
@@ -106,16 +119,48 @@ static CGFloat img_height = 200;
 #pragma mark -- pull、drag start , timer is nil
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
-    [timer invalidate];
-    timer = nil;
+    if (scrollView == myScrollview) {
+        [timer invalidate];
+        timer = nil;
+    }
 }
 
 #pragma mark -- again start timer
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
-    timer = [NSTimer scheduledTimerWithTimeInterval:1.2 target:self selector:@selector(scrollWithImg) userInfo:nil repeats:YES];
-    /** change priority **/
-    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+    if (scrollView == myScrollview) {
+        timer = [NSTimer scheduledTimerWithTimeInterval:1.2 target:self selector:@selector(scrollWithImg) userInfo:nil repeats:YES];
+        /** change priority **/
+        [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+    }
+}
+
+#pragma mark -- uitableview delegate
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 6;
+}
+
+- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return (screen_height - CGRectGetMaxY(myScrollview.frame) - 20) / 6;
+}
+
+- (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"cell"];
+    }
+    
+    cell.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"img0%ld",indexPath.row]];
+    
+    return cell;
 }
 
 @end
