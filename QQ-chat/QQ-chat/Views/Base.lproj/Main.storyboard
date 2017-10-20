@@ -61,7 +61,10 @@
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="send"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="fWL-No-qht"/>
+                                        </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="07w-iQ-Do0">
                                         <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
@@ -106,6 +109,7 @@
                     </view>
                     <connections>
                         <outlet property="tableview" destination="MRa-L9-UHt" id="LEg-Fi-EfG"/>
+                        <outlet property="textInput" destination="7ov-nX-Nqj" id="juA-Vk-AhU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

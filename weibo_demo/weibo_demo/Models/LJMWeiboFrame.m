@@ -49,7 +49,7 @@
     //4、正文
     CGFloat text_x = icon_x;
     CGFloat text_y = CGRectGetMaxY(_iconFrame) + margin;
-    CGSize textSize = [self sizeWithText:weibo.text andMaxSize:CGSizeMake([UIScreen mainScreen].bounds.size.width - 20 , MAXFLOAT) andFont:textFont];
+    CGSize textSize = [self sizeWithText:weibo.text andMaxSize:CGSizeMake([UIScreen mainScreen].bounds.size.width - margin * 2 , MAXFLOAT) andFont:textFont];
     CGFloat text_w = textSize.width;
     CGFloat text_h = textSize.height;
     

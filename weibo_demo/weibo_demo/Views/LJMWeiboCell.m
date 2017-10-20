@@ -12,9 +12,9 @@
 @interface LJMWeiboCell ()
 
 @property (weak , nonatomic) UIImageView    * imageviewIcon;
-@property (weak , nonatomic) UILabel        * lblNickName;
+@property (weak , nonatomic) UILabel            * lblNickName;
 @property (weak , nonatomic) UIImageView    * imageviewVip;
-@property (weak , nonatomic) UILabel        * lblText;
+@property (weak , nonatomic) UILabel            * lblText;
 @property (weak , nonatomic) UIImageView    * imageviewPicture;
 
 @end
@@ -95,7 +95,7 @@
     self.lblNickName.text = model.name;
     
     //3、会员
-    if (model.isVIP) {
+    if (model.vip) {
         self.imageviewVip.hidden = NO;
         self.lblNickName.textColor = [UIColor redColor];
     }else
@@ -125,19 +125,19 @@
 - (void) setWithFrame
 {
     //1、头像
-    self.imageviewIcon.frame = self.weiboFrame.iconFrame;
+    self.imageviewIcon.frame        =    self.weiboFrame.iconFrame;
     
     //2、昵称
-    self.lblNickName.frame = self.weiboFrame.nameFrame;
+    self.lblNickName.frame           =   self.weiboFrame.nameFrame;
     
     //3、会员
-    self.imageviewVip.frame = self.weiboFrame.vipFrame;
+    self.imageviewVip.frame         =   self.weiboFrame.vipFrame;
     
     //4、正文
-    self.lblText.frame = self.weiboFrame.textFrame;
+    self.lblText.frame                   =  self.weiboFrame.textFrame;
     
     //5、配图
-    self.imageviewPicture.frame = self.weiboFrame.pictureFrame;
+    self.imageviewPicture.frame    =    self.weiboFrame.pictureFrame;
 }
 
 - (void)awakeFromNib {

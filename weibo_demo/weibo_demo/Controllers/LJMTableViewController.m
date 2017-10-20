@@ -8,10 +8,11 @@
 
 #import "LJMTableViewController.h"
 
-@interface LJMTableViewController ()
+@interface LJMTableViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 //保存很多个weiboFrame模型
 @property (strong , nonatomic) NSArray  * weiboFrames;
+@property (nonatomic,strong) UITableView *mytableview;
 
 @end
 
@@ -24,6 +25,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    _mytableview = [[UITableView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    _mytableview.delegate = self;
+    _mytableview.dataSource = self;
+    [self.view addSubview:_mytableview];
 }
 
 #pragma mark - Table view data source
