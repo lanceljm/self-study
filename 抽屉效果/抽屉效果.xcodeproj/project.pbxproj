@@ -1,0 +1,359 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		36043E491FE2552D0037AC4E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 36043E481FE2552D0037AC4E /* AppDelegate.m */; };
+		36043E4F1FE2552E0037AC4E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36043E4D1FE2552E0037AC4E /* Main.storyboard */; };
+		36043E511FE2552E0037AC4E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36043E501FE2552E0037AC4E /* Assets.xcassets */; };
+		36043E541FE2552E0037AC4E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36043E521FE2552E0037AC4E /* LaunchScreen.storyboard */; };
+		36043E571FE2552E0037AC4E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 36043E561FE2552E0037AC4E /* main.m */; };
+		36043E5F1FE255810037AC4E /* DrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36043E5E1FE255810037AC4E /* DrawerViewController.m */; };
+		36A8EFEA1FE3749B007F805C /* UIViewController+Drawer.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A8EFE91FE3749B007F805C /* UIViewController+Drawer.m */; };
+		36A8EFF01FE37A8E007F805C /* DrawerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A8EFEF1FE37A8E007F805C /* DrawerVC.m */; };
+		36A8EFF31FE37AAF007F805C /* HomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A8EFF21FE37AAF007F805C /* HomeVC.m */; };
+		36A8EFF61FE37AE5007F805C /* AboutMeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A8EFF51FE37AE5007F805C /* AboutMeVC.m */; };
+		36A8EFF91FE37E65007F805C /* DetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A8EFF81FE37E65007F805C /* DetailVC.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		36043E441FE2552D0037AC4E /* 抽屉效果.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "抽屉效果.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		36043E471FE2552D0037AC4E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		36043E481FE2552D0037AC4E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		36043E4E1FE2552E0037AC4E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		36043E501FE2552E0037AC4E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		36043E531FE2552E0037AC4E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		36043E551FE2552E0037AC4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		36043E561FE2552E0037AC4E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		36043E5D1FE255810037AC4E /* DrawerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrawerViewController.h; sourceTree = "<group>"; };
+		36043E5E1FE255810037AC4E /* DrawerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrawerViewController.m; sourceTree = "<group>"; };
+		36A8EFE81FE3749B007F805C /* UIViewController+Drawer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Drawer.h"; sourceTree = "<group>"; };
+		36A8EFE91FE3749B007F805C /* UIViewController+Drawer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Drawer.m"; sourceTree = "<group>"; };
+		36A8EFEE1FE37A8E007F805C /* DrawerVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrawerVC.h; sourceTree = "<group>"; };
+		36A8EFEF1FE37A8E007F805C /* DrawerVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrawerVC.m; sourceTree = "<group>"; };
+		36A8EFF11FE37AAF007F805C /* HomeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeVC.h; sourceTree = "<group>"; };
+		36A8EFF21FE37AAF007F805C /* HomeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeVC.m; sourceTree = "<group>"; };
+		36A8EFF41FE37AE5007F805C /* AboutMeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AboutMeVC.h; sourceTree = "<group>"; };
+		36A8EFF51FE37AE5007F805C /* AboutMeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AboutMeVC.m; sourceTree = "<group>"; };
+		36A8EFF71FE37E65007F805C /* DetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailVC.h; sourceTree = "<group>"; };
+		36A8EFF81FE37E65007F805C /* DetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailVC.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		36043E411FE2552D0037AC4E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		36043E3B1FE2552D0037AC4E = {
+			isa = PBXGroup;
+			children = (
+				36043E461FE2552D0037AC4E /* 抽屉效果 */,
+				36043E451FE2552D0037AC4E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		36043E451FE2552D0037AC4E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				36043E441FE2552D0037AC4E /* 抽屉效果.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		36043E461FE2552D0037AC4E /* 抽屉效果 */ = {
+			isa = PBXGroup;
+			children = (
+				36043E471FE2552D0037AC4E /* AppDelegate.h */,
+				36043E481FE2552D0037AC4E /* AppDelegate.m */,
+				36043E5D1FE255810037AC4E /* DrawerViewController.h */,
+				36043E5E1FE255810037AC4E /* DrawerViewController.m */,
+				36A8EFE81FE3749B007F805C /* UIViewController+Drawer.h */,
+				36A8EFE91FE3749B007F805C /* UIViewController+Drawer.m */,
+				36A8EFEE1FE37A8E007F805C /* DrawerVC.h */,
+				36A8EFEF1FE37A8E007F805C /* DrawerVC.m */,
+				36A8EFF11FE37AAF007F805C /* HomeVC.h */,
+				36A8EFF21FE37AAF007F805C /* HomeVC.m */,
+				36A8EFF41FE37AE5007F805C /* AboutMeVC.h */,
+				36A8EFF51FE37AE5007F805C /* AboutMeVC.m */,
+				36A8EFF71FE37E65007F805C /* DetailVC.h */,
+				36A8EFF81FE37E65007F805C /* DetailVC.m */,
+				36043E4D1FE2552E0037AC4E /* Main.storyboard */,
+				36043E501FE2552E0037AC4E /* Assets.xcassets */,
+				36043E521FE2552E0037AC4E /* LaunchScreen.storyboard */,
+				36043E551FE2552E0037AC4E /* Info.plist */,
+				36043E561FE2552E0037AC4E /* main.m */,
+			);
+			path = "抽屉效果";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		36043E431FE2552D0037AC4E /* 抽屉效果 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 36043E5A1FE2552E0037AC4E /* Build configuration list for PBXNativeTarget "抽屉效果" */;
+			buildPhases = (
+				36043E401FE2552D0037AC4E /* Sources */,
+				36043E411FE2552D0037AC4E /* Frameworks */,
+				36043E421FE2552D0037AC4E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "抽屉效果";
+			productName = "抽屉效果";
+			productReference = 36043E441FE2552D0037AC4E /* 抽屉效果.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		36043E3C1FE2552D0037AC4E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = ljm;
+				TargetAttributes = {
+					36043E431FE2552D0037AC4E = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 36043E3F1FE2552D0037AC4E /* Build configuration list for PBXProject "抽屉效果" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 36043E3B1FE2552D0037AC4E;
+			productRefGroup = 36043E451FE2552D0037AC4E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				36043E431FE2552D0037AC4E /* 抽屉效果 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		36043E421FE2552D0037AC4E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				36043E541FE2552E0037AC4E /* LaunchScreen.storyboard in Resources */,
+				36043E511FE2552E0037AC4E /* Assets.xcassets in Resources */,
+				36043E4F1FE2552E0037AC4E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		36043E401FE2552D0037AC4E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				36043E5F1FE255810037AC4E /* DrawerViewController.m in Sources */,
+				36A8EFF91FE37E65007F805C /* DetailVC.m in Sources */,
+				36A8EFEA1FE3749B007F805C /* UIViewController+Drawer.m in Sources */,
+				36043E571FE2552E0037AC4E /* main.m in Sources */,
+				36A8EFF31FE37AAF007F805C /* HomeVC.m in Sources */,
+				36043E491FE2552D0037AC4E /* AppDelegate.m in Sources */,
+				36A8EFF61FE37AE5007F805C /* AboutMeVC.m in Sources */,
+				36A8EFF01FE37A8E007F805C /* DrawerVC.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		36043E4D1FE2552E0037AC4E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				36043E4E1FE2552E0037AC4E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		36043E521FE2552E0037AC4E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				36043E531FE2552E0037AC4E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		36043E581FE2552E0037AC4E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		36043E591FE2552E0037AC4E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		36043E5B1FE2552E0037AC4E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2PC8J9MPF4;
+				INFOPLIST_FILE = "抽屉效果/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ljm.----";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		36043E5C1FE2552E0037AC4E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2PC8J9MPF4;
+				INFOPLIST_FILE = "抽屉效果/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ljm.----";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		36043E3F1FE2552D0037AC4E /* Build configuration list for PBXProject "抽屉效果" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				36043E581FE2552E0037AC4E /* Debug */,
+				36043E591FE2552E0037AC4E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		36043E5A1FE2552E0037AC4E /* Build configuration list for PBXNativeTarget "抽屉效果" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				36043E5B1FE2552E0037AC4E /* Debug */,
+				36043E5C1FE2552E0037AC4E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 36043E3C1FE2552D0037AC4E /* Project object */;
+}
