@@ -9,11 +9,11 @@
 #import "AppDelegate.h"
 #import "ViewController.h"
 
-#define selfwith [UIScreen mainScreen].bounds.size.width
-#define selfheight [UIScreen mainScreen].bounds.size.height
+#define selfWidth [UIScreen mainScreen].bounds.size.width
+#define selfHeight [UIScreen mainScreen].bounds.size.height
 
 
-@interface AppDelegate ()
+@interface AppDelegate ()<UITableViewDelegate,UITableViewDataSource>
 {
     UIView *myView;
     UITextField *accountTF ;
@@ -21,6 +21,12 @@
     UIButton *loginBtn;
     UIButton *selectBtn;
     BOOL is_selected;
+    BOOL is_selectedPassword;
+    UIButton *selectPasswordBtn;
+    UITableView *accountTB;
+    UITableView *passwordTB;
+    NSArray *accountArr;
+    NSArray *passwordArr;
 }
 @end
 
@@ -71,8 +77,26 @@
 - (void) setupUI
 {
     myView = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    myView.backgroundColor = [UIColor colorWithRed:97/255.0 green:196/255.0 blue:249/255.0 alpha:1.f];
+    myView.backgroundColor = [UIColor colorWithRed:49/255.0 green:122/255.0 blue:211/255.0 alpha:1.f];
     [[UIApplication sharedApplication].keyWindow addSubview:myView];
+    
+    UILabel *nameLab = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 60)];
+    nameLab.center = CGPointMake(selfWidth / 2, 100);
+    nameLab.backgroundColor = [UIColor clearColor];
+    nameLab.text = @"云网邮箱";
+    nameLab.textColor = [UIColor whiteColor];
+    nameLab.textAlignment = NSTextAlignmentCenter;
+    nameLab.font = [UIFont systemFontOfSize:35];
+    [myView addSubview:nameLab];
+    
+    UILabel *companyLab = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 40)];
+    companyLab.center = CGPointMake(selfWidth / 2, selfHeight - 50);
+    companyLab.backgroundColor = [UIColor clearColor];
+    companyLab.text = @"云南远信科技有限公司";
+    companyLab.textColor = [UIColor lightGrayColor];
+    companyLab.textAlignment = NSTextAlignmentCenter;
+    companyLab.font = [UIFont systemFontOfSize:15];
+    [myView addSubview:companyLab];
     
     /* < account > */
     [self setupWithAccount];
@@ -80,18 +104,20 @@
     [self setupWithPassword];
     /* < login > */
     [self setupWithLogin];
-
+    
     
     is_selected = NO;
+    is_selectedPassword = NO;
     /* < selected > */
     [self setupWithSelectBtn];
+    [self setupWithSelectPassword];
 }
 
 #pragma mark -- account
 - (void) setupWithAccount
 {
-    accountTF = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, selfwith * 0.7,50)];
-    accountTF.center = CGPointMake(selfwith / 2 - 15, selfheight / 2 - 60);
+    accountTF = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, selfWidth * 0.7,50)];
+    accountTF.center = CGPointMake(selfWidth / 2 - 15, selfHeight / 2 - 60);
     accountTF.backgroundColor = [UIColor whiteColor];
     accountTF.placeholder = @"请输入账号:";
     accountTF.textAlignment = NSTextAlignmentCenter;
@@ -100,7 +126,7 @@
 #pragma mark -- password
 - (void) setupWithPassword
 {
-    passwordTF = [[UITextField alloc] initWithFrame:CGRectMake(CGRectGetMinX(accountTF.frame), CGRectGetMaxY(accountTF.frame) + 10, selfwith * 0.8,accountTF.frame.size.height)];
+    passwordTF = [[UITextField alloc] initWithFrame:CGRectMake(CGRectGetMinX(accountTF.frame), CGRectGetMaxY(accountTF.frame) + 10, accountTF.frame.size.width,accountTF.frame.size.height)];
     passwordTF.backgroundColor = accountTF.backgroundColor;
     passwordTF.placeholder = @"请输入密码:";
     passwordTF.textAlignment = NSTextAlignmentCenter;
@@ -120,38 +146,163 @@
 }
 - (void) setupWithSelectBtn
 {
+    
+    accountTB = [[UITableView alloc] init];
+    accountTB.backgroundColor = [UIColor whiteColor];
+    accountTB.delegate = self;
+    accountTB.dataSource = self;
+    [myView addSubview:accountTB];
+    
     selectBtn = [[UIButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(accountTF.frame), accountTF.frame.origin.y, accountTF.frame.size.height, accountTF.frame.size.height)];
     selectBtn.backgroundColor = [UIColor lightGrayColor];
     if (is_selected) {
         [selectBtn setImage:[UIImage imageNamed:@"triangle1"] forState:UIControlStateNormal];
+        accountTB.frame = CGRectMake(accountTF.frame.origin.x, CGRectGetMaxY(accountTF.frame), accountTF.frame.size.width, accountTF.frame.size.height * 8);
     }else
     {
         [selectBtn setImage:[UIImage imageNamed:@"triangle"] forState:UIControlStateNormal];
+        accountTB.frame = CGRectMake(accountTF.frame.origin.x, CGRectGetMaxY(accountTF.frame), accountTF.frame.size.width, 0);
     }
     [selectBtn addTarget:self action:@selector(selectWithAccount:) forControlEvents:UIControlEventTouchUpInside];
     [myView addSubview: selectBtn];
+    
+    
+    accountArr = @[@"coremail_1@im.yn.csg",
+                   @"coremail_2@im.yn.csg",
+                   @"coremail_3@im.yn.csg",
+                   @"coremail_4@im.yn.csg",
+                   @"coremail_5@im.yn.csg",
+                   @"coremail_6@im.yn.csg",
+                   @"wangqinpeng_ynyxkjyxgs@im.yn.csg",
+                   @"chenyunchuan003@im.yn.csg"];
+    
+}
+
+- (void) setupWithSelectPassword
+{
+    passwordTB = [[UITableView alloc] init];
+    passwordTB.backgroundColor = [UIColor whiteColor];
+    passwordTB.delegate = self;
+    passwordTB.dataSource = self;
+    [myView addSubview:passwordTB];
+    
+    selectPasswordBtn = [[UIButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(passwordTF.frame), passwordTF.frame.origin.y, passwordTF.frame.size.height, passwordTF.frame.size.height)];
+    selectPasswordBtn.backgroundColor = [UIColor lightGrayColor];
+    if (is_selected) {
+        [selectPasswordBtn setImage:[UIImage imageNamed:@"triangle1"] forState:UIControlStateNormal];
+        passwordTB.frame = CGRectMake(passwordTF.frame.origin.x, CGRectGetMaxY(passwordTF.frame), passwordTF.frame.size.width, passwordTF.frame.size.height * 2);
+    }else
+    {
+        [selectPasswordBtn setImage:[UIImage imageNamed:@"triangle"] forState:UIControlStateNormal];
+        passwordTB.frame = CGRectMake(passwordTF.frame.origin.x, CGRectGetMaxY(passwordTF.frame), passwordTF.frame.size.width, 0);
+    }
+    [selectPasswordBtn addTarget:self action:@selector(selectWithPassword:) forControlEvents:UIControlEventTouchUpInside];
+    [myView addSubview: selectPasswordBtn];
+    
+    
+    passwordArr = @[@"aaa@123",
+                    @"password"];
 }
 
 
 #pragma mark -- actions
 - (void) loginClicked: (id) sender
 {
-    [UIView animateWithDuration:2.0f animations:^{
-        [myView removeFromSuperview];
-    }];
-    NSLog(@"登录成功");
+    if (passwordTF.text != nil && ![passwordTF.text isEqualToString:@""] && accountTF.text != nil && ![accountTF.text isEqualToString:@""]) {
+        
+        [[NSUserDefaults standardUserDefaults] setValue:accountTF.text forKeyPath:@"account"];
+        [[NSUserDefaults standardUserDefaults] setValue:passwordTF.text forKeyPath:@"password"];
+        
+        [UIView animateWithDuration:2.0f animations:^{
+            [myView removeFromSuperview];
+        }];
+        NSLog(@"登录成功");
+    }
 }
 
 - (void) selectWithAccount : (id) sender
 {
     is_selected = !is_selected;
-
+    
     if (is_selected) {
         [selectBtn setImage:[UIImage imageNamed:@"triangle1"] forState:UIControlStateNormal];
+        accountTB.frame = CGRectMake(accountTF.frame.origin.x, CGRectGetMaxY(accountTF.frame), accountTF.frame.size.width, accountTF.frame.size.height * 8);
     }else
     {
         [selectBtn setImage:[UIImage imageNamed:@"triangle"] forState:UIControlStateNormal];
+        accountTB.frame = CGRectMake(accountTF.frame.origin.x, CGRectGetMaxY(accountTF.frame), accountTF.frame.size.width, 0);
+    }
+}
+- (void) selectWithPassword : (id) sender
+{
+    is_selectedPassword = !is_selectedPassword;
+    
+    if (is_selectedPassword) {
+        [selectPasswordBtn setImage:[UIImage imageNamed:@"triangle1"] forState:UIControlStateNormal];
+        passwordTB.frame = CGRectMake(passwordTF.frame.origin.x, CGRectGetMaxY(passwordTF.frame), passwordTF.frame.size.width, passwordTF.frame.size.height * 2);
+    }else
+    {
+        [selectPasswordBtn setImage:[UIImage imageNamed:@"triangle"] forState:UIControlStateNormal];
+        passwordTB.frame = CGRectMake(passwordTF.frame.origin.x, CGRectGetMaxY(passwordTF.frame), passwordTF.frame.size.width, 0);
     }
 }
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if (tableView == accountTB) {
+        return accountArr.count;
+    }else
+    {
+        return passwordArr.count;
+    }
+}
+- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    return accountTF.frame.size.height;
+    
+}
+- (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *identifier = @"cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+    }
+    if (tableView == accountTB) {
+        cell.textLabel.text = accountArr[indexPath.row];
+        if (indexPath.row > 5) {
+            cell.textLabel.textColor = [UIColor redColor];
+        }
+    }else
+    {
+        cell.textLabel.text = passwordArr[indexPath.row];
+        if (indexPath.row > 0) {
+            cell.textLabel.textColor = [UIColor redColor];
+        }
+    }
+    return cell;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (tableView == accountTB) {
+        accountTF.text = accountArr[indexPath.row];
+        //        [[NSUserDefaults standardUserDefaults] setValue:accountTF.text forKeyPath:@"account"];
+        is_selected = NO;
+        [selectBtn setImage:[UIImage imageNamed:@"triangle"] forState:UIControlStateNormal];
+        accountTB.frame = CGRectMake(accountTF.frame.origin.x, CGRectGetMaxY(accountTF.frame), accountTF.frame.size.width, 0);
+    }else
+    {
+        passwordTF.text = passwordArr[indexPath.row];
+        //        [[NSUserDefaults standardUserDefaults] setValue:passwordTF.text forKeyPath:@"password"];
+        is_selectedPassword = NO;
+        [selectPasswordBtn setImage:[UIImage imageNamed:@"triangle"] forState:UIControlStateNormal];
+        passwordTB.frame = CGRectMake(passwordTF.frame.origin.x, CGRectGetMaxY(passwordTF.frame), passwordTF.frame.size.width, 0);
+    }
+    
+}
 @end
